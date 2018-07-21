@@ -1,0 +1,20 @@
+What it does:
+  Store files across the world on nodes in equaliy sized chunks and allows the downloading of these chunks by other nodes.
+  Node - A Client that runs on a users device and facilitates the upload, access, and download of chunks.
+
+Requirements: 
+  Decentralized storage of chunks.
+  Downloading of chunks by each node.
+  Building of circuits of multiple nodes in between sender and receiver to provide privacy.
+  Each node caches requested chunks once they pass through.
+  The file name, size, etc. and chunk checksums get stored in a .dro file that works similar to a torrent file.
+
+Restrictions:
+  A Node can not explicitly upload chunks but rather seeds chunks until they get requested. Other nodes will then cache the chunks and upload is done.
+  Nodes must never store any sort of metadata about an uploaded file. Metadata about chunks is ok.
+  Caching is done by popularity. The more popular a chunk, the longer it gets retained.
+
+DRO File
+  The filesize of a dro file for a 10GB file with chunk size of 1MB and using sha512 for checksumming
+  the dro file size uncompressed is about 1.3MB just with checksums and 658KB when compressed with xz at full compression.
+  This is the file size in ascii format so might be smaller as binary.
